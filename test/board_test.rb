@@ -9,6 +9,8 @@ class BoardTest < MiniTest::Test
   def setup
     @board = Board.new(9, 9)
     @cells = []
+    @objects = "WWWWWWWWWW..PPP..WW.WWWWW.WW.......WX.WWP\
+WW.WW.......WW.WWWWW.WW...T...WWWWWWWWWW".chars
   end
 
   def test_board
@@ -25,7 +27,18 @@ class BoardTest < MiniTest::Test
     assert_equal 81, board.cells.length
   end
 
-  def test_something_can_populate_the_board
-    puts @board.generate
+  def test_can_add_a_target_to_the_board
+    @board.generate
+
+    @board.populate([:target])
+    assert_equal :target, @board.cells[0].object
+    puts @board.cells[0]
+  end
+
+  def test_entire_board_can_be_populated
+    @board.generate
+
+    puts @board.populate(@objects)
+    assert_equal 81, @objects.size
   end
 end

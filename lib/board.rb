@@ -1,6 +1,6 @@
+require 'pry'
 
-
-Cell = Struct.new(:row, :col, :val)
+Cell = Struct.new(:row, :col, :object)
 
 class Board
 
@@ -21,5 +21,11 @@ class Board
       end
     end
     return @cells
+  end
+
+  def populate(objects)
+    #self.cells.first.object = objects[0]
+
+    @cells.each_with_index { |cell, index| cell.object = objects[index] }
   end
 end

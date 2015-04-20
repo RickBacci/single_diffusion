@@ -17,3 +17,7 @@ class Blah
 end
 
 p foo = Blah.new(1,2)
+
+
+p objects = "WWWWWWWWWW..PPP..WW.WWWWW.WW.......WX.WWP\
+WW.WW.......WW.WWWWW.WW...T...WWWWWWWWWW".chars

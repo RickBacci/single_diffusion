@@ -22,5 +22,6 @@ PLATFORMS
 
 DEPENDENCIES
   minitest
+  pry
   pry-byebug
   rake
