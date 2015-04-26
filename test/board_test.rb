@@ -27,18 +27,11 @@ WW.WW.......WW.WWWWW.WW...T...WWWWWWWWWW".chars
     assert_equal 81, board.cells.length
   end
 
-  def test_can_add_a_target_to_the_board
-    @board.generate
-
-    @board.populate([:target])
-    assert_equal :target, @board.cells[0].object
-    puts @board.cells[0]
-  end
-
   def test_entire_board_can_be_populated
     @board.generate
+    @board.populate(@objects)
 
-    puts @board.populate(@objects)
-    assert_equal 81, @objects.size
+    assert_equal true, @board.cells.none? { |cell| cell.object.empty? }
   end
 end
+

@@ -4,7 +4,7 @@ Cell = Struct.new(:row, :col, :object)
 
 class Board
 
-  attr_accessor :rows, :cols, :cells, :board_size
+  attr_accessor :rows, :cols, :cells, :board_size, :objects
 
   def initialize(rows, cols)
     @rows = rows
@@ -20,12 +20,16 @@ class Board
        @cells << Cell.new(row, col)
       end
     end
-    return @cells
+    return cells
   end
 
   def populate(objects)
-    #self.cells.first.object = objects[0]
-
-    @cells.each_with_index { |cell, index| cell.object = objects[index] }
+    cells.each_with_index { |cell, index| cell.object = objects[index] }
   end
 end
+objects = "WWWWWWWWWW..PPP..WW.WWWWW.WW.......WX.WWP\
+WW.WW.......WW.WWWWW.WW...T...WWWWWWWWWW".chars
+
+board = Board.new(9, 9)
+board.generate
+p board.populate(objects)
